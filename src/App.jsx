@@ -3,7 +3,7 @@ import Navigation from './components/Navigation'
 import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
 import './assets/scss/App.scss'
-import TopFilms from './pages/TopFilms'
+import TopRated from './pages/TopRated'
 
 function App() {
 	return (
@@ -12,7 +12,7 @@ function App() {
 
 			<Routes>
 				<Route path="/" element={<HomePage />} />
-				<Route path="/top-films" element={<TopFilms />} />
+				<Route path="/top-rated" element={<TopRated />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</div>

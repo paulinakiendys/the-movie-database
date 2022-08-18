@@ -7,12 +7,12 @@ const Navigation = () => {
 	return (
 		<Navbar bg="dark" variant="dark" expand="md">
 			<Container>
-				<Navbar.Brand as={Link} to="/">React Template</Navbar.Brand>
+				<Navbar.Brand as={Link} to="/">The movie database</Navbar.Brand>
 
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="ms-auto">
-						<Nav.Link as={NavLink} end to="/top-films">Top Films</Nav.Link>
+						<Nav.Link as={NavLink} end to="/top-rated">Top rated</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>
