@@ -1,4 +1,5 @@
 import Container from 'react-bootstrap/Container'
+import tmdbAPI from '../services/tmdbAPI'
 
 const TopFilms = () => {
 	return (
