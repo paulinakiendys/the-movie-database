@@ -1,11 +1,28 @@
 import axios from "axios"
 
-export const getMovie = async () => {
-    const response = await axios.get('https://api.themoviedb.org/3/movie/top_rated?api_key=183fd22807ddeb836dd0b0eee953ad5b&language=en-US&page=1')
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY
+const BASE_URL = 'https://api.themoviedb.org/3/movie'
+
+export const getNowPlaying = async () => {
+    const response = await axios.get(`${BASE_URL}/now_playing?api_key=${API_KEY}&language=en-US&page=1`)
+
+    return response.data
+}
+
+export const getPopular = async () => {
+    const response = await axios.get(`${BASE_URL}/popular?api_key=${API_KEY}&language=en-US&page=1`)
+
+    return response.data
+}
+
+export const getTopRated = async () => {
+    const response = await axios.get(`${BASE_URL}/top_rated?api_key=${API_KEY}&language=en-US&page=1`)
 
     return response.data
 }
 
 export default {
-    getMovie,
+    getNowPlaying,
+    getPopular,
+    getTopRated,
 }

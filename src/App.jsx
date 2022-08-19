@@ -4,6 +4,8 @@ import Navigation from './components/Navigation'
 import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
 import './assets/scss/App.scss'
+import NowPlaying from './pages/NowPlaying'
+import Popular from './pages/Popular'
 import TopRated from './pages/TopRated'
 
 function App() {
@@ -13,6 +15,8 @@ function App() {
 
 			<Routes>
 				<Route path="/" element={<HomePage />} />
+				<Route path="/now-playing" element={<NowPlaying />} />
+				<Route path="/popular" element={<Popular />} />
 				<Route path="/top-rated" element={<TopRated />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>

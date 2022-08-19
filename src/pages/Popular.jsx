@@ -2,14 +2,14 @@ import Container from 'react-bootstrap/Container'
 import { useQuery } from 'react-query'
 import tmdbAPI from '../services/tmdbAPI'
 
-const TopRated = () => {
-	const {data, isLoading, isError, error} = useQuery('top-rated', tmdbAPI.getTopRated)
+const Popular = () => {
+	const {data, isLoading, isError, error} = useQuery('popular', tmdbAPI.getPopular)
 	console.log(data)
 	return (
 		<Container className="py-3">
-			<h1>Top rated movies</h1>
+			<h1>Current popular movies</h1>
 
-			{isLoading && (<p>Loading top rated movies...</p>)}
+			{isLoading && (<p>Loading current popular movies...</p>)}
 
 			{isError && (<p>{error.message}</p>)}
 
@@ -19,4 +19,4 @@ const TopRated = () => {
 	)
 }
 
-export default TopRated
+export default Popular
