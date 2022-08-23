@@ -7,6 +7,7 @@ import './assets/scss/App.scss'
 import NowPlaying from './pages/NowPlaying'
 import Popular from './pages/Popular'
 import TopRated from './pages/TopRated'
+import GenrePage from './pages/GenrePage'
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 				<Route path="/now-playing" element={<NowPlaying />} />
 				<Route path="/popular" element={<Popular />} />
 				<Route path="/top-rated" element={<TopRated />} />
+				<Route path="/genre/:id" element={<GenrePage />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 
