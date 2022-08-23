@@ -1,7 +1,8 @@
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 
-export const MovieCard = ({ base_URL, movie }) => {
+export const MovieCard = ({ movie }) => {
+    const base_URL = 'https://image.tmdb.org/t/p/w500'
     return (
         <Col>
             <Card>

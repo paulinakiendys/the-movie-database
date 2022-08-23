@@ -7,7 +7,6 @@ import { MovieCard } from '../components/MovieCard';
 const NowPlaying = () => {
 	const { data, isLoading, isError, error } = useQuery('now-playing', tmdbAPI.getNowPlaying)
 	// console.log(data)
-	const base_URL = 'https://image.tmdb.org/t/p/original/'
 	return (
 		<Container className="py-3">
 			<h1>Movies in theatres</h1>
@@ -19,7 +18,7 @@ const NowPlaying = () => {
 			{data && (
 				<Row xs={1} sm={2} md={4} lg={5} className="g-4">
 					{data.results.map(movie => (
-						<MovieCard key={movie.id} base_URL={base_URL} movie={movie}></MovieCard>
+						<MovieCard key={movie.id} movie={movie}></MovieCard>
 					))}
 				</Row>
 			)}
