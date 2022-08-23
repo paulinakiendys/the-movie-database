@@ -6,9 +6,7 @@ import { Container, Row } from 'react-bootstrap';
 
 export const GenrePage = () => {
     const { id } = useParams()
-    const { data, isLoading, isError, error } = useQuery(['genre', id], () => {
-        return tmdbAPI.getMovieByGenre(id)
-    })
+    const { data, isLoading, isError, error } = useQuery(['genre', id], tmdbAPI.getMovieByGenre)
 
     const base_URL = 'https://image.tmdb.org/t/p/original/'
     return (
