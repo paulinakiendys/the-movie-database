@@ -1,8 +1,7 @@
-import Container from 'react-bootstrap/Container'
 import { useQuery } from 'react-query'
 import tmdbAPI from '../services/tmdbAPI'
-import Row from 'react-bootstrap/Row';
-import { MovieCard } from '../components/MovieCard';
+import { MovieCard } from '../components/MovieCard'
+import { Alert, Container, Row } from 'react-bootstrap'
 
 const NowPlaying = () => {
 	const { data, isLoading, isError, error } = useQuery('now-playing', tmdbAPI.getNowPlaying)
@@ -11,9 +10,9 @@ const NowPlaying = () => {
 		<Container className="py-3">
 			<h1>Movies in theatres</h1>
 
-			{isLoading && (<p>Loading movies in theatres...</p>)}
+			{isLoading && (<p className='my-3'>Loading movies in theatres...</p>)}
 
-			{isError && (<p>{error.message}</p>)}
+			{isError && (<Alert variant="danger"><p>{error.message}</p></Alert>)}
 
 			{data && (
 				<Row xs={1} sm={2} md={4} lg={5} className="g-4">
