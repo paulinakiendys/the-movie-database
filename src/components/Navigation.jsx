@@ -20,7 +20,7 @@ const Navigation = () => {
 						{data && (
 							<NavDropdown title="Genres">
 								{data.genres.map(genre => (
-									<NavDropdown.Item key={genre.id} as={NavLink} to={`genre/${genre.id}`}>{genre.name}</NavDropdown.Item>
+									<NavDropdown.Item key={genre.id} as={NavLink} to={`genres/${genre.id}`}>{genre.name}</NavDropdown.Item>
 								))}
 							</NavDropdown>
 						)}

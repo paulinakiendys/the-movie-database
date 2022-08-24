@@ -17,7 +17,7 @@ const Popular = () => {
 			{data && (
 				<Row xs={1} sm={2} md={4} lg={5} className="g-4">
 					{data.results.map(movie => (
-						<MovieCard key={movie.id} movie={movie}></MovieCard>
+						<MovieCard key={movie.id} movie={movie} id={movie.id}></MovieCard>
 					))}
 				</Row>
 			)}
