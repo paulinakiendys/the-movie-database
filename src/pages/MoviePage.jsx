@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query'
 import tmdbAPI from '../services/tmdbAPI'
 import { useParams } from 'react-router-dom'
-import { Alert, Container, Image, ListGroup, Button, Card } from 'react-bootstrap'
+import { Alert, Container, Image, ListGroup, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const MoviePage = () => {
