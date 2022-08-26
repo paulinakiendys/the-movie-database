@@ -7,7 +7,7 @@ export const PersonDetails = ({ person, movies }) => {
     const navigate = useNavigate()
     return (
         <>
-            <h1>{person.name}</h1>
+            <h1 className='mb-3'>{person.name}</h1>
             <Image src={base_URL + person.profile_path}></Image>
             <h3>Biography</h3>
             <p>{person.biography}</p>

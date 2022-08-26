@@ -7,7 +7,7 @@ export const MovieDetails = ({ data }) => {
   const navigate = useNavigate()
   return (
       <>
-        <h1>{data.title}</h1>
+        <h1 className='mb-3'>{data.title}</h1>
         <Image src={base_URL + data.poster_path}></Image>
         <h3>Overview</h3>
         <p>{data.overview}</p>

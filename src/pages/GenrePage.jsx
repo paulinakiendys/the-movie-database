@@ -13,7 +13,7 @@ export const GenrePage = () => {
     })
     return (
         <>
-            <h1>Movies by genre</h1>
+            <h1 className='mb-3'>Movies by genre</h1>
 
             {isLoading && (<p className='my-3'>Loading movies by genre...</p>)}
 

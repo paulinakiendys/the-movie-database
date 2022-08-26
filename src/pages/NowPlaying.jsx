@@ -8,7 +8,7 @@ const NowPlaying = () => {
 	// console.log(data)
 	return (
 		<>
-			<h1>Movies in theatres</h1>
+			<h1 className='mb-3'>Movies in theatres</h1>
 
 			{isLoading && (<p className='my-3'>Loading movies in theatres...</p>)}
 

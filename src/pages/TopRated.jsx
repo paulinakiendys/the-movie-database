@@ -8,7 +8,7 @@ const TopRated = () => {
 	// console.log(data)
 	return (
 		<>
-			<h1>Top rated movies</h1>
+			<h1 className='mb-3'>Top rated movies</h1>
 
 			{isLoading && (<p className='my-3'>Loading top rated movies...</p>)}
 

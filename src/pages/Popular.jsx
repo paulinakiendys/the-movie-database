@@ -8,7 +8,7 @@ const Popular = () => {
 	// console.log(data)
 	return (
 		<>
-			<h1>Current popular movies</h1>
+			<h1 className='mb-3'>Current popular movies</h1>
 
 			{isLoading && (<p className='my-3'>Loading current popular movies...</p>)}
 
