@@ -2,7 +2,7 @@ import { useQuery } from 'react-query'
 import tmdbAPI from '../services/tmdbAPI'
 import { MovieCard } from '../components/MovieCard'
 import { useParams } from 'react-router-dom'
-import { Alert, Container, Row, Button } from 'react-bootstrap'
+import { Alert, Row, Button } from 'react-bootstrap'
 import { useState } from 'react'
 
 export const GenrePage = () => {

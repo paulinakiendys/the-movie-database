@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query'
 import tmdbAPI from '../services/tmdbAPI'
 import { MovieCard } from '../components/MovieCard'
-import { Alert, Container, Row } from 'react-bootstrap'
+import { Alert, Row } from 'react-bootstrap'
 
 const TopRated = () => {
 	const { data, isLoading, isError, error } = useQuery('top-rated', tmdbAPI.getTopRated)

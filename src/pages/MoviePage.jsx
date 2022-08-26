@@ -1,13 +1,14 @@
 import { useQuery } from 'react-query'
 import tmdbAPI from '../services/tmdbAPI'
-import { useParams } from 'react-router-dom'
-import { Alert, Container, Image, ListGroup, Button } from 'react-bootstrap'
+import { useParams, useNavigate } from 'react-router-dom'
+import { Alert, Image, ListGroup, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const MoviePage = () => {
     const base_URL = 'https://image.tmdb.org/t/p/w500'
     const { id } = useParams()
     const { data, isLoading, isError, error } = useQuery(['movie', id], tmdbAPI.getMovieDetails)
+    const navigate = useNavigate()
 
     return (
         <>
@@ -38,6 +39,7 @@ const MoviePage = () => {
                             ))
                         }
                     </ListGroup>
+                    <Button variant="secondary" onClick={() => navigate(-1)}>&laquo; Back</Button>
                 </>
             )}
         </>
