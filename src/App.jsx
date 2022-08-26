@@ -10,26 +10,29 @@ import TopRated from './pages/TopRated'
 import GenrePage from './pages/GenrePage'
 import MoviePage from './pages/MoviePage'
 import PersonPage from './pages/PersonPage'
+import { Container } from 'react-bootstrap'
 
 function App() {
 	return (
 		<div id="App">
 			<Navigation />
 
-			<Routes>
-				<Route path="/" element={<HomePage />} />
+			<Container className="py-3">
+				<Routes>
+					<Route path="/" element={<HomePage />} />
 
-				<Route path="/now-playing" element={<NowPlaying />} />
-				<Route path="/popular" element={<Popular />} />
-				<Route path="/top-rated" element={<TopRated />} />
+					<Route path="/now-playing" element={<NowPlaying />} />
+					<Route path="/popular" element={<Popular />} />
+					<Route path="/top-rated" element={<TopRated />} />
 
-				<Route path="/genres/:id" element={<GenrePage />} />
+					<Route path="/genres/:id" element={<GenrePage />} />
 
-				<Route path="/movies/:id" element={<MoviePage />} />
-				<Route path="/people/:id" element={<PersonPage />} />
+					<Route path="/movies/:id" element={<MoviePage />} />
+					<Route path="/people/:id" element={<PersonPage />} />
 
-				<Route path="*" element={<NotFound />} />
-			</Routes>
+					<Route path="*" element={<NotFound />} />
+				</Routes>
+			</Container>
 
 			<ReactQueryDevtools position='bottom-right' />
 		</div>

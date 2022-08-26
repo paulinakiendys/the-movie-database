@@ -10,8 +10,7 @@ const MoviePage = () => {
     const { data, isLoading, isError, error } = useQuery(['movie', id], tmdbAPI.getMovieDetails)
 
     return (
-        <Container className="py-3">
-
+        <>
             {isLoading && (<p className='my-3'>Loading movie...</p>)}
 
             {isError && (<Alert variant="danger"><p>{error.message}</p></Alert>)}
@@ -41,8 +40,7 @@ const MoviePage = () => {
                     </ListGroup>
                 </>
             )}
-
-        </Container>
+        </>
     )
 }
 

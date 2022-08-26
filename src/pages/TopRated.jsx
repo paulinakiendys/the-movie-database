@@ -7,7 +7,7 @@ const TopRated = () => {
 	const { data, isLoading, isError, error } = useQuery('top-rated', tmdbAPI.getTopRated)
 	// console.log(data)
 	return (
-		<Container className="py-3">
+		<>
 			<h1>Top rated movies</h1>
 
 			{isLoading && (<p className='my-3'>Loading top rated movies...</p>)}
@@ -22,7 +22,7 @@ const TopRated = () => {
 				</Row>
 			)}
 
-		</Container>
+		</>
 	)
 }
 

@@ -12,7 +12,7 @@ export const GenrePage = () => {
         keepPreviousData: true,
     })
     return (
-        <Container className="py-3">
+        <>
             <h1>Movies by genre</h1>
 
             {isLoading && (<p className='my-3'>Loading movies by genre...</p>)}
@@ -43,7 +43,7 @@ export const GenrePage = () => {
                 </>
             )}
 
-        </Container>
+        </>
     )
 }
 

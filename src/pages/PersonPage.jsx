@@ -13,7 +13,7 @@ const PersonPage = () => {
 
   // console.log(movies)
   return (
-    <Container className="py-3">
+    <>
 
       {isLoading && (<p className='my-3'>Loading person...</p>)}
 
@@ -45,7 +45,7 @@ const PersonPage = () => {
         </>
       )}
 
-    </Container>
+    </>
   )
 }
 

@@ -7,7 +7,7 @@ const NowPlaying = () => {
 	const { data, isLoading, isError, error } = useQuery('now-playing', tmdbAPI.getNowPlaying)
 	// console.log(data)
 	return (
-		<Container className="py-3">
+		<>
 			<h1>Movies in theatres</h1>
 
 			{isLoading && (<p className='my-3'>Loading movies in theatres...</p>)}
@@ -21,7 +21,7 @@ const NowPlaying = () => {
 					))}
 				</Row>
 			)}
-		</Container>
+		</>
 	)
 }
 

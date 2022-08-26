@@ -7,7 +7,7 @@ const Popular = () => {
 	const { data, isLoading, isError, error } = useQuery('popular', tmdbAPI.getPopular)
 	// console.log(data)
 	return (
-		<Container className="py-3">
+		<>
 			<h1>Current popular movies</h1>
 
 			{isLoading && (<p className='my-3'>Loading current popular movies...</p>)}
@@ -22,7 +22,7 @@ const Popular = () => {
 				</Row>
 			)}
 
-		</Container>
+		</>
 	)
 }
 
