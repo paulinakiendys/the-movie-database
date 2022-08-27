@@ -60,6 +60,11 @@ export const getMoviesByPerson = async ({ queryKey }) => {
     return getResource(`/discover/movie`, 1, null, null, null, null, id)
 }
 
+export const getSimilarMovies = async ({ queryKey }) => {
+    const [_key, { id }] = queryKey
+    return getResource(`/movie/${id}/similar`)
+}
+
 export default {
     getGenreList,
     getNowPlaying,
@@ -69,4 +74,5 @@ export default {
     getMovieDetails,
     getPerson,
     getMoviesByPerson,
+    getSimilarMovies,
 }
