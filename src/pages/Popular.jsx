@@ -2,8 +2,10 @@ import { useQuery } from 'react-query'
 import tmdbAPI from '../services/tmdbAPI'
 import { MovieCard } from '../components/MovieCard'
 import { useSearchParams } from 'react-router-dom'
-import { Alert, Row } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import Pagination from '../components/Pagination'
+import LoadingSpinner from '../components/LoadingSpinner'
+import WarningAlert from '../components/alerts/WarningAlert'
 
 const Popular = () => {
 	const [searchParams, setSearchParams] = useSearchParams({ page: 1 })
@@ -13,9 +15,9 @@ const Popular = () => {
 		<>
 			<h1 className='mb-3'>Current popular movies</h1>
 
-			{isLoading && (<p className='my-3'>Loading current popular movies...</p>)}
+			{isLoading && <LoadingSpinner />}
 
-			{isError && (<Alert variant="danger"><p>{error.message}</p></Alert>)}
+			{isError && <WarningAlert message={error.message} />}
 
 			{data && (
 				<>
@@ -30,8 +32,8 @@ const Popular = () => {
 						total_pages={data.total_pages}
 						hasPreviousPage={isPreviousData || page !== 1}
 						hasNextPage={isPreviousData || page !== data.total_pages}
-						onPreviousPage={() => setSearchParams({ page: page - 1})}
-						onNextPage={() => setSearchParams({ page: page + 1})}
+						onPreviousPage={() => setSearchParams({ page: page - 1 })}
+						onNextPage={() => setSearchParams({ page: page + 1 })}
 					></Pagination>
 				</>
 			)}
