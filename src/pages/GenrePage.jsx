@@ -1,19 +1,16 @@
-import { useQuery } from 'react-query'
-import tmdbAPI from '../services/tmdbAPI'
 import { MovieCard } from '../components/MovieCard'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { Row } from 'react-bootstrap'
 import Pagination from '../components/Pagination'
 import LoadingSpinner from '../components/LoadingSpinner'
 import WarningAlert from '../components/alerts/WarningAlert'
+import useMovieByGenre from '../hooks/useMovieByGenre'
 
 export const GenrePage = () => {
     const [searchParams, setSearchParams] = useSearchParams({ page: 1 })
     const page = searchParams.get('page') ? Number(searchParams.get('page')) : null
     const { id } = useParams()
-    const { data, isLoading, isError, error, isPreviousData} = useQuery(['genre', { id, page }], tmdbAPI.getMovieByGenre, {
-        keepPreviousData: true,
-    })
+    const { data, isLoading, isError, error, isPreviousData} = useMovieByGenre(id, page)
 
     return (
         <>

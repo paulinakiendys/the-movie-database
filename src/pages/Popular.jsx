@@ -1,16 +1,15 @@
-import { useQuery } from 'react-query'
-import tmdbAPI from '../services/tmdbAPI'
 import { MovieCard } from '../components/MovieCard'
 import { useSearchParams } from 'react-router-dom'
 import { Row } from 'react-bootstrap'
 import Pagination from '../components/Pagination'
 import LoadingSpinner from '../components/LoadingSpinner'
 import WarningAlert from '../components/alerts/WarningAlert'
+import usePopular from '../hooks/usePopular'
 
 const Popular = () => {
 	const [searchParams, setSearchParams] = useSearchParams({ page: 1 })
 	const page = searchParams.get('page') ? Number(searchParams.get('page')) : null
-	const { data, isLoading, isError, error, isPreviousData } = useQuery(['popular', { page }], tmdbAPI.getPopular)
+	const { data, isLoading, isError, error, isPreviousData } = usePopular(page)
 	return (
 		<>
 			<h1 className='mb-3'>Current popular movies</h1>

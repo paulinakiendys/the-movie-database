@@ -1,14 +1,14 @@
-import { useQuery } from 'react-query'
-import tmdbAPI from '../services/tmdbAPI'
 import { useParams } from 'react-router-dom'
 import PersonDetails from '../components/PersonDetails'
 import LoadingSpinner from '../components/LoadingSpinner'
 import WarningAlert from '../components/alerts/WarningAlert'
+import usePerson from '../hooks/usePerson'
+import useMoviesByPerson from '../hooks/useMoviesByPerson'
 
 const PersonPage = () => {
   const { id } = useParams()
-  const { data: person, isLoading, isError, error } = useQuery(['person', { id }], tmdbAPI.getPerson)
-  const { data: movies } = useQuery(['person-movies', { id }], tmdbAPI.getMoviesByPerson)
+  const { data: person, isLoading, isError, error } = usePerson(id)
+  const { data: movies } = useMoviesByPerson(id)
 
   return (
     <>
