@@ -6,8 +6,8 @@ import PersonDetails from '../components/PersonDetails'
 
 const PersonPage = () => {
   const { id } = useParams()
-  const { data: person, isLoading, isError, error } = useQuery(['person', id], tmdbAPI.getPerson)
-  const { data: movies } = useQuery(['person-movies', id], tmdbAPI.getMoviesByPerson)
+  const { data: person, isLoading, isError, error } = useQuery(['person', { id }], tmdbAPI.getPerson)
+  const { data: movies } = useQuery(['person-movies', { id }], tmdbAPI.getMoviesByPerson)
 
   return (
     <>

@@ -2,8 +2,9 @@ import { useQuery } from 'react-query'
 import tmdbAPI from '../services/tmdbAPI'
 import { MovieCard } from '../components/MovieCard'
 import { useParams } from 'react-router-dom'
-import { Alert, Row, Button } from 'react-bootstrap'
+import { Alert, Row } from 'react-bootstrap'
 import { useState } from 'react'
+import Pagination from '../components/Pagination'
 
 export const GenrePage = () => {
     const [page, setPage] = useState(1)
@@ -11,6 +12,7 @@ export const GenrePage = () => {
     const { data, isLoading, isError, error, isPreviousData } = useQuery(['genre', { id, page }], tmdbAPI.getMovieByGenre, {
         keepPreviousData: true,
     })
+    // console.log(data)
     return (
         <>
             <h1 className='mb-3'>Movies by genre</h1>
@@ -27,19 +29,14 @@ export const GenrePage = () => {
                         ))}
                     </Row>
 
-                    <div className="pagination d-flex justify-content-between align-items-center mt-4">
-                        <Button
-                            disabled={isPreviousData || page === 1}
-                            variant="primary"
-                            onClick={() => setPage(currentPage => currentPage - 1)}
-                        >Prev</Button>
-                        {page} of {data.total_pages}
-                        <Button
-                            disabled={isPreviousData || page === data.total_pages}
-                            variant="primary"
-                            onClick={() => setPage(currentPage => currentPage + 1)}
-                        >Next</Button>
-                    </div>
+                    <Pagination
+                        page={page}
+                        total_pages={data.total_pages}
+                        hasPreviousPage={isPreviousData || page !== 1}
+                        hasNextPage={isPreviousData || page !== data.total_pages}
+                        onPreviousPage={() => setPage(currentPage => currentPage - 1)}
+                        onNextPage={() => setPage(currentPage => currentPage + 1)}
+                    ></Pagination>
                 </>
             )}
 

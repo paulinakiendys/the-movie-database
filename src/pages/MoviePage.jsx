@@ -6,8 +6,7 @@ import MovieDetails from '../components/MovieDetails'
 
 const MoviePage = () => {
     const { id } = useParams()
-    const { data, isLoading, isError, error } = useQuery(['movie', id], tmdbAPI.getMovieDetails)
-    
+    const { data, isLoading, isError, error } = useQuery(['movie', { id }], tmdbAPI.getMovieDetails)
     return (
         <>
             {isLoading && (<p className='my-3'>Loading movie...</p>)}
