@@ -1,7 +1,7 @@
 import axios from "axios"
 
 axios.defaults.baseURL = import.meta.env.VITE_TMDB_BASE_URL || 'https://api.themoviedb.org/3'
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY || 'qQQSw1r07jvWJa6N83c7xTHw55deX2Uq'
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY
 
 const get = async (endpoint) => {
     const response = await axios.get(endpoint)
