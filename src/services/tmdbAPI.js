@@ -67,6 +67,11 @@ export const getFindMovie = async ({ queryKey }) => {
     return getResource(`/search/movie`, page, query)
 }
 
+export const getTrending = async ({ queryKey }) => {
+    const [_key, { page, timeWindow }] = queryKey
+    return getResource(`trending/movie/${timeWindow}`, page)
+}
+
 export default {
     getGenreList,
     getNowPlaying,
@@ -78,4 +83,5 @@ export default {
     getMoviesByPerson,
     getSimilarMovies,
     getFindMovie,
+    getTrending,
 }

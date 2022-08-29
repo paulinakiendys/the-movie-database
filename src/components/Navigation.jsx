@@ -5,7 +5,6 @@ import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
 const Navigation = () => {
 	const { data } = useQuery('genre-list', tmdbAPI.getGenreList)
-	// console.log(data)
 	return (
 		<Navbar bg="dark" variant="dark" expand="md">
 			<Container>
@@ -17,6 +16,7 @@ const Navigation = () => {
 						<Nav.Link as={NavLink} to="/now-playing">Now Playing</Nav.Link>
 						<Nav.Link as={NavLink} to="/popular">Popular</Nav.Link>
 						<Nav.Link as={NavLink} to="/top-rated">Top rated</Nav.Link>
+						<Nav.Link as={NavLink} to="/trending">Trending</Nav.Link>
 						{data && (
 							<NavDropdown title="Genres">
 								{data.genres.map(genre => (

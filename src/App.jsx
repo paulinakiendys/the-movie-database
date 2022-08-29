@@ -12,6 +12,7 @@ import MoviePage from './pages/MoviePage'
 import PersonPage from './pages/PersonPage'
 import { Container } from 'react-bootstrap'
 import SearchPage from './pages/SearchPage'
+import Trending from './pages/Trending'
 
 function App() {
 	return (
@@ -25,6 +26,7 @@ function App() {
 					<Route path="/now-playing" element={<NowPlaying />} />
 					<Route path="/popular" element={<Popular />} />
 					<Route path="/top-rated" element={<TopRated />} />
+					<Route path="/trending" element={<Trending />} />
 
 					<Route path="/genres/:id" element={<GenrePage />} />
 
