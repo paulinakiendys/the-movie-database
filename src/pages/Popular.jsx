@@ -31,8 +31,14 @@ const Popular = () => {
 						total_pages={data.total_pages}
 						hasPreviousPage={isPreviousData || page !== 1}
 						hasNextPage={isPreviousData || page !== data.total_pages}
-						onPreviousPage={() => setSearchParams({ page: page - 1 })}
-						onNextPage={() => setSearchParams({ page: page + 1 })}
+						onPreviousPage={() => {
+							setSearchParams({ page: page - 1 })
+							window.scrollTo(0, 0)
+						}}
+						onNextPage={() => {
+							setSearchParams({ page: page + 1 })
+							window.scrollTo(0, 0)
+						}}
 					></Pagination>
 				</>
 			)}

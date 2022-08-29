@@ -10,7 +10,7 @@ export const GenrePage = () => {
     const [searchParams, setSearchParams] = useSearchParams({ page: 1 })
     const page = searchParams.get('page') ? Number(searchParams.get('page')) : null
     const { id } = useParams()
-    const { data, isLoading, isError, error, isPreviousData} = useMovieByGenre(id, page)
+    const { data, isLoading, isError, error, isPreviousData } = useMovieByGenre(id, page)
 
     return (
         <>
@@ -33,8 +33,14 @@ export const GenrePage = () => {
                         total_pages={data.total_pages}
                         hasPreviousPage={isPreviousData || page !== 1}
                         hasNextPage={isPreviousData || page !== data.total_pages}
-                        onPreviousPage={() => setSearchParams({ page: page - 1 })}
-                        onNextPage={() => setSearchParams({ page: page + 1 })}
+                        onPreviousPage={() => {
+                            setSearchParams({ page: page - 1 })
+                            window.scrollTo(0, 0)
+                        }}
+                        onNextPage={() => {
+                            setSearchParams({ page: page + 1 })
+                            window.scrollTo(0, 0)
+                        }}
                     ></Pagination>
                 </>
             )}

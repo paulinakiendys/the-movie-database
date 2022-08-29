@@ -47,8 +47,14 @@ const SearchPage = () => {
                             total_pages={data.total_pages}
                             hasPreviousPage={isPreviousData || page !== 1}
                             hasNextPage={isPreviousData || page !== data.total_pages}
-                            onPreviousPage={() => setSearchParams({ query, page: page - 1 })}
-                            onNextPage={() => setSearchParams({ query, page: page + 1 })}
+                            onPreviousPage={() => {
+                                setSearchParams({ query, page: page - 1 })
+                                window.scrollTo(0, 0)
+                            }}
+                            onNextPage={() => {
+                                setSearchParams({ query, page: page + 1 })
+                                window.scrollTo(0, 0)
+                            }}
                         ></Pagination>
                     </>
                 )}
