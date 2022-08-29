@@ -24,6 +24,7 @@ const Navigation = () => {
 								))}
 							</NavDropdown>
 						)}
+						<Nav.Link as={NavLink} to="/search">Find movie</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>

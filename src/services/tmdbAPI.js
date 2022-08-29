@@ -5,7 +5,6 @@ const API_KEY = import.meta.env.VITE_TMDB_API_KEY || 'qQQSw1r07jvWJa6N83c7xTHw55
 
 const get = async (endpoint) => {
     const response = await axios.get(endpoint)
-
     return response.data
 }
 
@@ -21,9 +20,7 @@ const getResource = async (
     return get(`${resource}?api_key=${API_KEY}&language=en-US&page=${page}&query=${query}&include_adult=${include_adult}&with_genres=${with_genres}&append_to_response=${append_to_response}&with_people=${with_people}`)
 }
 
-export const getGenreList = () => {
-    return getResource(`/genre/movie/list`)
-}
+export const getGenreList = () => getResource(`/genre/movie/list`)
 
 export const getNowPlaying = ({ queryKey }) => {
     const [_key, { page } ] = queryKey
@@ -65,6 +62,11 @@ export const getSimilarMovies = async ({ queryKey }) => {
     return getResource(`/movie/${id}/similar`)
 }
 
+export const getFindMovie = async ({ queryKey }) => {
+    const [_key, { page, query }] = queryKey
+    return getResource(`/search/movie`, page, query)
+}
+
 export default {
     getGenreList,
     getNowPlaying,
@@ -75,4 +77,5 @@ export default {
     getPerson,
     getMoviesByPerson,
     getSimilarMovies,
+    getFindMovie,
 }

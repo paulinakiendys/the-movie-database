@@ -11,6 +11,7 @@ import GenrePage from './pages/GenrePage'
 import MoviePage from './pages/MoviePage'
 import PersonPage from './pages/PersonPage'
 import { Container } from 'react-bootstrap'
+import SearchPage from './pages/SearchPage'
 
 function App() {
 	return (
@@ -29,6 +30,8 @@ function App() {
 
 					<Route path="/movies/:id" element={<MoviePage />} />
 					<Route path="/people/:id" element={<PersonPage />} />
+
+					<Route path="/search" element ={<SearchPage />} />
 
 					<Route path="*" element={<NotFound />} />
 				</Routes>
