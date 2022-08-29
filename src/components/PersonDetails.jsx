@@ -1,8 +1,10 @@
 import { Image, ListGroup, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { useMovieContext } from '../contexts/MovieContextProvider'
 
 export const PersonDetails = ({ person, movies }) => {
+    const { addMovie } = useMovieContext()
     const base_URL = 'https://image.tmdb.org/t/p/w500'
     const navigate = useNavigate()
     return (
@@ -21,6 +23,7 @@ export const PersonDetails = ({ person, movies }) => {
                                 as={Link}
                                 to={`/movies/${movie.id}`}
                                 variant="link"
+                                onClick={() => addMovie(movie)}
                             >
                                 {movie.title} »
                             </Button>

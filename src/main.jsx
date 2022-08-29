@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
+import MovieContextProvider from './contexts/MovieContextProvider'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -19,7 +20,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 		<QueryClientProvider client={queryClient}>
 			<BrowserRouter>
-				<App />
+				<MovieContextProvider>
+					<App />
+				</MovieContextProvider>
 			</BrowserRouter>
 		</QueryClientProvider>
 
