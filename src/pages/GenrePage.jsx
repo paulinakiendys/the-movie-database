@@ -9,12 +9,12 @@ import useMovieByGenre from '../hooks/useMovieByGenre'
 export const GenrePage = () => {
     const [searchParams, setSearchParams] = useSearchParams({ page: 1 })
     const page = searchParams.get('page') ? Number(searchParams.get('page')) : null
-    const { id } = useParams()
+    const { genreName, id } = useParams()
     const { data, isLoading, isError, error, isPreviousData } = useMovieByGenre(id, page)
 
     return (
         <>
-            <h1 className='mb-3'>Movies by genre</h1>
+            <h1 className='mb-3'>{genreName}</h1>
 
             {isLoading && <LoadingSpinner />}
 

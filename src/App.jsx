@@ -26,9 +26,10 @@ function App() {
 					<Route path="/now-playing" element={<NowPlaying />} />
 					<Route path="/popular" element={<Popular />} />
 					<Route path="/top-rated" element={<TopRated />} />
-					<Route path="/trending" element={<Trending />} />
 
-					<Route path="/genres/:id" element={<GenrePage />} />
+					<Route path="/trending/:timeWindow" element={<Trending />} />
+
+					<Route path="/genres/:genreName/:id" element={<GenrePage />} />
 
 					<Route path="/movies/:id" element={<MoviePage />} />
 					<Route path="/people/:id" element={<PersonPage />} />

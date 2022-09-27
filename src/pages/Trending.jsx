@@ -1,43 +1,20 @@
 import { MovieCard } from '../components/MovieCard'
-import { useSearchParams } from 'react-router-dom'
-import { Row, ButtonGroup, ToggleButton } from 'react-bootstrap'
+import { useParams, useSearchParams } from 'react-router-dom'
+import { Row } from 'react-bootstrap'
 import Pagination from '../components/Pagination'
 import LoadingSpinner from '../components/LoadingSpinner'
 import WarningAlert from '../components/alerts/WarningAlert'
 import useTrending from '../hooks/useTrending'
-import { useState } from 'react'
 
 const Trending = () => {
-	const [timeWindow, setTimeWindow] = useState('day')
+	const { timeWindow } = useParams()
 	const [searchParams, setSearchParams] = useSearchParams({ page: 1 })
 	const page = searchParams.get('page') ? Number(searchParams.get('page')) : null
 	const { data, isLoading, isError, error, isPreviousData } = useTrending(page, timeWindow)
 
-	const radios = [
-		{ name: 'Day', value: 'day' },
-		{ name: 'Week', value: 'week' },
-	]
-
 	return (
 		<>
-			<h1 className='mb-3'>Trending movies</h1>
-
-			<ButtonGroup className="mb-2">
-				{radios.map((radio, idx) => (
-					<ToggleButton
-						key={idx}
-						id={`radio-${idx}`}
-						type="radio"
-						variant="secondary"
-						name="radio"
-						value={radio.value}
-						checked={timeWindow === radio.value}
-						onChange={(e) => setTimeWindow(e.currentTarget.value)}
-					>
-						{radio.name}
-					</ToggleButton>
-				))}
-			</ButtonGroup>
+			<h1 className='mb-3'>Trending movies for the {timeWindow}</h1>
 
 			{isLoading && <LoadingSpinner />}
 

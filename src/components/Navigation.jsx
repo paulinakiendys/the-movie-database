@@ -16,11 +16,14 @@ const Navigation = () => {
 						<Nav.Link as={NavLink} to="/now-playing">Now Playing</Nav.Link>
 						<Nav.Link as={NavLink} to="/popular">Popular</Nav.Link>
 						<Nav.Link as={NavLink} to="/top-rated">Top rated</Nav.Link>
-						<Nav.Link as={NavLink} to="/trending">Trending</Nav.Link>
+						<NavDropdown title="Trending">
+							<NavDropdown.Item as={NavLink} to="/trending/day">Day</NavDropdown.Item>
+							<NavDropdown.Item as={NavLink} to="/trending/week">Week</NavDropdown.Item>
+						</NavDropdown>
 						{data && (
 							<NavDropdown title="Genres">
 								{data.genres.map(genre => (
-									<NavDropdown.Item key={genre.id} as={NavLink} to={`genres/${genre.id}`}>{genre.name}</NavDropdown.Item>
+									<NavDropdown.Item key={genre.id} as={NavLink} to={`genres/${genre.name}/${genre.id}`}>{genre.name}</NavDropdown.Item>
 								))}
 							</NavDropdown>
 						)}
@@ -28,7 +31,7 @@ const Navigation = () => {
 					</Nav>
 				</Navbar.Collapse>
 			</Container>
-		</Navbar>
+		</Navbar >
 	)
 }
 
